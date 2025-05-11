@@ -19,12 +19,14 @@ interface DataTableProps<T> {
   }[];
   data: T[];
   idField?: keyof T;
+  onRowClick?: (item: T) => void;
 }
 
 export function DataTable<T>({
   columns,
   data,
   idField = "id" as keyof T,
+  onRowClick,
 }: DataTableProps<T>) {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -69,7 +71,11 @@ export function DataTable<T>({
           <TableBody>
             {paginatedData.length > 0 ? (
               paginatedData.map((item) => (
-                <TableRow key={String(item[idField])}>
+                <TableRow 
+                  key={String(item[idField])} 
+                  onClick={() => onRowClick && onRowClick(item)}
+                  className={onRowClick ? "cursor-pointer hover:bg-muted/50" : ""}
+                >
                   {columns.map((column) => (
                     <TableCell key={`${item[idField]}-${column.id}`}>
                       {column.cell(item)}

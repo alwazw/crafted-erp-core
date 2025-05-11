@@ -12,7 +12,7 @@ import {
 import { DataTable } from "@/components/dashboard/DataTable";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { FilePlus, Search, Package, Database, ImportExport } from "lucide-react";
+import { FilePlus, Search, Package, Database, FileUp, FileDown } from "lucide-react";
 import { BulkActions } from "@/components/inventory/BulkActions";
 
 // Enhanced product data with cost information
@@ -213,7 +213,7 @@ const Products = () => {
         <h1 className="page-title mb-0">Inventory Products</h1>
         <div className="flex flex-wrap items-center gap-2">
           <Button size="sm" variant="outline" onClick={() => setCurrentView("bulk")}>
-            <ImportExport className="mr-2 h-4 w-4" />
+            <FileUp className="mr-2 h-4 w-4" />
             Import/Export
           </Button>
           <Button size="sm" variant="outline" onClick={() => setCurrentView("dashboard")}>
