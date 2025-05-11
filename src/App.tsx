@@ -14,6 +14,8 @@ import Customers from "./pages/sales/Customers";
 import Orders from "./pages/sales/Orders";
 import Calendar from "./pages/sales/Calendar";
 import Products from "./pages/inventory/Products";
+import InventoryDashboard from "./pages/inventory/Dashboard";
+import SalesReports from "./pages/sales/Reports";
 
 const queryClient = new QueryClient();
 
@@ -81,10 +83,26 @@ const App = () => (
             }
           />
           <Route
+            path="/sales/reports"
+            element={
+              <AppShell>
+                <SalesReports />
+              </AppShell>
+            }
+          />
+          <Route
             path="/inventory/products"
             element={
               <AppShell>
                 <Products />
+              </AppShell>
+            }
+          />
+          <Route
+            path="/inventory/dashboard"
+            element={
+              <AppShell>
+                <InventoryDashboard />
               </AppShell>
             }
           />
